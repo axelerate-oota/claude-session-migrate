@@ -3,6 +3,10 @@
 > Claude Code のデスクトップアプリでアカウントを切り替えたら、それまでの会話（セッション）履歴が一覧から全部消えた——。
 > 結論から言うと **データは消えていません。表示されていないだけ** です。この記事では、消えて見える履歴を今のアカウントに「復活」させる方法を、コピペできるスクリプト付きで解説します。
 
+> 🛠 ツール一式はGitHubで公開しています（MIT・無料）：
+> **https://github.com/axelerate-oota/claude-session-migrate**
+> Claude Code Skill 版とスタンドアロンスクリプト版の両方を同梱しています。
+
 ---
 
 ## こんな人向け
@@ -75,23 +79,17 @@
 
 ### 1. スクリプトを保存して実行
 
-以下を `session-migrate.sh` という名前で保存します。
-
-<details>
-<summary>session-migrate.sh（クリックで展開）</summary>
+スクリプトはGitHubに置いてあります。clone するか、`standalone/session-migrate.sh` をダウンロードしてください。
 
 ```bash
-（※ 配布スクリプト session-migrate.sh の中身をここに貼り付け）
+git clone https://github.com/axelerate-oota/claude-session-migrate.git
+cd claude-session-migrate
+chmod +x standalone/session-migrate.sh
+./standalone/session-migrate.sh
 ```
 
-</details>
-
-ターミナルで実行:
-
-```bash
-chmod +x session-migrate.sh
-./session-migrate.sh
-```
+> **Claude Code をターミナルで使っている人**は、スキル版がさらに簡単です。
+> `cp -R skill ~/.claude/skills/session-migrate` で入れて、`claude` を起動し `/session-migrate` と打つだけ。Claude がアプリ終了→コピー→確認案内まで対話で進めてくれます。
 
 実行すると、
 
